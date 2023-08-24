@@ -1,9 +1,18 @@
 <section id="title">
 <div class="container mt-2">
-	<h1 class="display-1 text-center">{{ site.title }}</h1>
+	<h1 class="display-1 text-center">{{ page.title | default: site.title }}</h1>
 	<nav class="mt-3">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="/">NightB1ade’s Sites</a></li>
+			{%- if page.title != null %}
+			<li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Blog</a></li>
+			{%- endif %}
+			{%- assign crumbs = page.url | remove: "/index.html" | split: "/" %}
+			{%- for crumb in crumbs offset: 1 %}
+				{%- if forloop.last == false %}
+			<li class="breadcrumb-item">{{ crumb }}</li>
+				{%- endif %}
+			{%- endfor %}
 			<li class="breadcrumb-item active">{{ page.title | default: "Blog" }}</li>
 		</ol>
 	</nav>
