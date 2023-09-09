@@ -1,0 +1,35 @@
+---
+title: Gaia Project Insert
+tags: board-games 3d-printing
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>Using my Elegoo Neptune 4 Pro, my first project was to print a insert for my Gaia Project board game.
+		Using a combination of plans from Thingiverse (links below), the results are below.</p>
+	<ul>
+		<li>1× <a href="//www.thingiverse.com/thing:5265785" target="_blank">Federation tokens and planet tray and lid</a></li>
+		<li>3× <a href="//www.thingiverse.com/thing:4276041" target="_blank">Half-height, split trays</a> – For 2× Power tokens and QICs, 1× Federation markers and skill usage tokens</li>
+		<li>10× <a href="//www.thingiverse.com/thing:3964746" target="_blank">Lids for half-height, split trays and player boxes</a></li>
+		<li>2× <a href="//www.thingiverse.com/thing:5265785" target="_blank">Map holders</a></li>
+		<li>7× <a href="//www.thingiverse.com/thing:3964746" target="_blank">Player boxes</a></li>
+		<li>6× <a href="//www.thingiverse.com/thing:3386657" target="_blank">Red player space stations</a></li>
+		<li>1× <a href="//www.thingiverse.com/thing:5265785" target="_blank">Tile and card tray</a></li>
+	</ul>
+
+
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-09-07-GaiaProjectInsert %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-09-07-GaiaProjectInsert/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>
