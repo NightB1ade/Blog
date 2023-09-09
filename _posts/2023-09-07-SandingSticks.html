@@ -1,0 +1,26 @@
+---
+title: Sanding Sticks
+tags: 3d-printing tools
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>Whilst working on the <a href="{% post_url 2023-09-06-GaiaProjectInsert %}">Gaia Project Insert</a>, I had edges to clean.
+		These <a href="//www.thingiverse.com/thing:2404850" target="_blank">sanding sticks</a> worked great for that</p>
+
+
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-09-07-SandingSticks %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-09-07-SandingSticks/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>
