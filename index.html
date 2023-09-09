@@ -11,12 +11,27 @@
 
 
 	<h1>By Tag</h1>
-	{% for tag in site.tags %}
-	<h2>{{ tag[0] | capitalize }}</h2>
+	{%- assign tags = '' | split: '' %}
+	{%- for tag in site.tags %}
+		{%- assign tagName = tag | first | downcase | split: ' ' %}
+		{%- assign tags = tags | concat: tagName %}
+	{%- endfor %}
+	{%- assign tags = tags | sort %}
+	{%- for tag_name in tags %}
+		{%- for tag in site.tags %}
+			{%- if tag[0] == tag_name %}
+			{%- assign tagwords = tag[0] | split: "-" %}
+	<h2>{%- for word in tagwords -%}
+			{%- case word -%}
+				{%- when "3d" -%}3D
+				{%- else -%}{{ word | capitalize }}
+			{%- endcase %} {% endfor -%}</h2>
 	<ul>
-		{% for post in tag[1] %}
+		{%- for post in tag[1] %}
 		<li>{{ post.date | date: "%d/%m/%Y" }}: <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-		{% endfor %}
+		{%- endfor %}
 	</ul>
-	{% endfor %}
+			{%- endif %}
+		{%- endfor %}
+	{%- endfor %}
 </div>
