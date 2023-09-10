@@ -1,0 +1,27 @@
+---
+title: Plant Saucer
+tags: 3d-printing household
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>I printed the provided Elegoo test print of the plant pot when I first got the 3D printer, which has holes at the bottom for water to escape.
+		So I needed a saucer to go with it.
+		The 90mm one from <a href="//www.thingiverse.com/thing:5958301" target="_blank">here</a> worked well for the size.</p>
+
+
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-09-11-PlantSaucer %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-09-11-PlantSaucer/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>
