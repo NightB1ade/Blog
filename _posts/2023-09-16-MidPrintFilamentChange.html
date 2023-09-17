@@ -1,0 +1,59 @@
+---
+title: Mid-Print Filament Change
+tags: 3d-printing
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<h2>Printer Side</h2>
+	<p>My investigations in how to print and get to a mid-print filament change such that I could change colour led me to have to put some more configs in the printer.
+		My printer being an Elegoo Neptune 4 Pro, it runs Klipper.
+		Apparently it does not natively come with support for the G-code <code>M600</code> which instructs the printer to do a filament change.
+		And thus it ignores the code and continues.</p>
+	<p>Reddit led me to <a href="//www.youtube.com/watch?v=D2-W1aTK8xU" target="_blank">this video</a> that explains in more detail.
+		Summary would be that one adds a macro into the printer configs that is then triggered when the <code>M600</code> is present.</p>
+	<p>There are many more macros that the community has created.
+		In my case, I have no need just yet for the rest of them.
+		The GitHub is <a href="//github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg" target="_blank">here</a>.
+		The relevant code to add to <code>printer.cfg</code> is below (as of post date).</p>
+	<code><pre>{% raw %}
+######################################################################
+# Filament Change
+######################################################################
+
+# M600: Filament Change. This macro will pause the printer, move the
+# tool to the change position, and retract the filament 50mm. Adjust
+# the retraction settings for your own extruder. After filament has
+# been changed, the print can be resumed from its previous position
+# with the "RESUME" gcode.
+
+[pause_resume]
+
+[gcode_macro M600]
+gcode:
+	{% set X = params.X|default(50)|float %}
+	{% set Y = params.Y|default(0)|float %}
+	{% set Z = params.Z|default(10)|float %}
+	SAVE_GCODE_STATE NAME=M600_state
+	PAUSE
+	G91
+	G1 E-.8 F2700
+	G1 Z{Z}
+	G90
+	G1 X{X} Y{Y} F3000
+	G91
+	G1 E-50 F1000
+	RESTORE_GCODE_STATE NAME=M600_state
+	{% endraw %}</pre></code>
+
+
+	<h2>Slicer</h2>
+	<p>There are plenty of resources online, but for my printer, I have to add in post-processing commands in.</p>
+	<ul>
+		<li>Under <code>Extensions</code> &gt; <code>Post-Processing</code> &gt; <code>Modify G-Code</code></li>
+		<li>Add script of <code>Filament Change</code></li>
+		<li>The main thing is to remember is that the layer change number is when it requests the filament change <em>prior</em> to printing that layer
+	</ul>
+	<p>Another thing to consider is that a shall purge tower is useful such that the tiny bit of built up filament on the head whilst the physical switch over of the reel is happening.
+		I used a small 20mm ring of 1mm thickness to do so successfully.</p>
+</div>
