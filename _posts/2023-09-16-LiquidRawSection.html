@@ -1,0 +1,12 @@
+---
+title: "Liquid: Raw Section"
+tags: programming liquid
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>When typing up the other post for today, I wanted to include a code section within <code>&lt;code&gt;&lt;pre&gt;</code> tags.
+		This code happenend to have <code>{% raw %}{% tags %}{% endraw %}</code> which then the Jekyll static site genertor was attempting to parse as these look like liquid tags.
+		Thus I had to find out how to escape this in liquid syntax.</p>
+	<p>The code for this in Liquid is: <code>{% raw %}{% raw %}Non-parsed{% {% endraw %}{% raw %}endraw %}{% endraw %}</code></p>
+</div>
