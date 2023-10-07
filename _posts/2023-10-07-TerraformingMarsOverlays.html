@@ -1,0 +1,30 @@
+---
+title: Terraforming Mars Overlays
+tags: 3d-printing board-games
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p><a href="//boardgamegeek.com/boardgame/167791/terraforming-mars" target="_blank">Terraforming Mars</a> has an important player mat that has tracks to record the production and amount of a number of resources.
+		Unfortunately, it is easily knocked and thus the game is affected.
+		I found <a href="//www.thingiverse.com/thing:2988374" target="_blank">this overlay</a> that cleverly uses a bit of printed paper and wedges it in a well with a small grid overlay for the cubes.
+		I did use a bit of PVA to ensure the grids did not pop out.
+		And as of current I haven’t added the photo corners yet to secure the mat to the back.</p>
+
+
+	<h1>Pictures</h1>
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-10-07-TerraformingMarsOverlay %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-10-07-TerraformingMarsOverlay/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>
