@@ -1,0 +1,29 @@
+---
+title: Well Size Tester
+tags: 3d-printing board-games tools
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>For holding various tiles/components/anything else in situations like board games, I wanted a way of having things to hand to test.</p>
+	<p>Thus, I designed this to be able to quickly print to keep aside as my testers before commiting to a larger print.
+		I embedded the numbers for the print into the bottom of the print itself so that after printing, I could easily remember what it is in a collection of these.</p>
+	<p>Everything is controlled by the parameters in the top marked section.</p>
+
+
+	<h1>Pictures</h1>
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-10-11-WellSizeTester %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-10-11-WellSizeTester/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>

@@ -1,0 +1,26 @@
+{
+	"type": "array"
+	, "title": "Pictures"
+	, "format": "table"
+	, "uniqueItems": true
+	, "items": {
+		"type": "object"
+		, "title": "Picture"
+		, "required": [
+			"title"
+			, "file"
+		]
+		, "properties": {
+			"title": {
+				"type": "string"
+				, "title": "Title"
+				, "minLength": 1
+			}
+			, "file": {
+				"type": "string"
+				, "title": "File"
+				, "minLength": 1
+			}
+		}
+	}
+}
