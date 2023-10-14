@@ -1,0 +1,30 @@
+---
+title: Customisable Token Tray
+tags: 3d-printing board-games tools
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>Following designing the <a href="{{ '/2023/10/11/WellSizeTester.html' | relative_url }}">Well Size Testers</a> that I previously uploaded, this is then the customisable file that is the basis of the actual token trays that I was testing for.</p>
+	<p>Everything is controlled by the parameters in the top marked section.
+		Parameters include the number of wells, the size and cutouts.
+		This time I’ve separated out the X and Y as well for further versatility.</p>
+	<p>File found <a href="//www.thingiverse.com/thing:6264667" target="_blank">here</a>.</p>
+
+
+	<h1>Pictures</h1>
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-10-14-CustomisableTokenTray %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-10-14-CustomisableTokenTray/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>
