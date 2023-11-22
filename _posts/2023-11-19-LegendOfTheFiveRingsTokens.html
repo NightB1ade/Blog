@@ -1,0 +1,27 @@
+---
+title: "Legend of the Five Rings: Tokens"
+tags: 3d-printing role-playing-games
+---
+
+<div class="container">
+	<h1>Introduction</h1>
+	<p>For an in-person Legend of the Five Rings RPG game, I printed the following tokens for us for use as a Ring reminder, e.g. what stance, last used check.</p>
+	<p>Files found <a href="//www.thingiverse.com/thing:2583430" target="_blank">here</a>.</p>
+
+
+	<h1>Pictures</h1>
+	<div class="row gy-2">
+	{%- for picture in site.data.posts_2023-11-19-LegendOfTheFiveRingsTokens %}
+		<div class="col col-12 col-sm-6 col-lg-4 col-xxl-3">
+			<div class="card">
+				<img class="card-img-top"
+					src="{{ picture.file | prepend: '/assets/posts/2023-11-19-LegendOfTheFiveRingsTokens/' | relative_url }}"
+					alt="{{ picture.title }}">
+					<div class="card-body">
+						<p class="card-text">{{ picture.title }}</p>
+					</div>
+			</div>
+		</div>
+	{%- endfor %}
+	</div>
+</div>
